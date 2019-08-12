@@ -4,6 +4,7 @@
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
     use App\User;
+    use App\Country;
     use Spatie\Permission\Models\Role;
     use DB;
     use Hash;
@@ -30,7 +31,9 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('name','name')->all();
-        return view('users.create',compact('roles'));
+        $countries = Country::pluck('name','name')->all();
+        
+        return view('users.create',compact('roles','countries'));
     }
 
     /**
@@ -45,6 +48,8 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
+            'country' => 'required',
+            'area' => 'required',
             'roles' => 'required'
         ]);
         $input = $request->all();
