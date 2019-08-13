@@ -15,6 +15,14 @@ class CreateRestaurantsTable extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('qrcode');               //QR Code
+            $table->string('qrcode_image_url');     //QR Code image Path
+            $table->string('featured_image_url');   //Resturant image Path
+            $table->string('area');
+            $table->string('country');
+            $table->string('history');
+            $table->string('site url');
             $table->timestamps();
         });
     }
