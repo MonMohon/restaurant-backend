@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Manage Posts</h1>
+            <h1>Manage Resturant</h1>
             <a href="{{ route('resturants.create') }}" class="btn btn-success" style="float: right">Create Resturant</a>
             <table class="table table-bordered">
                 <thead>

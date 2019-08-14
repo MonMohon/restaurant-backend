@@ -5,16 +5,20 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create Post</div>
+                <div class="card-header">Create Resturant</div>
                 <div class="card-body">
                     <form method="post" action="{{ route('resturants.store') }}">
                         <div class="form-group">
                         @csrf
-                            <label class="label">Post Title: </label>
+                            <label class="label">Resturant Name: </label>
                             <input type="text" name="title" class="form-control" required/>
                         </div>
                         <div class="form-group">
-                            <label class="label">Post Body: </label>
+                            <label class="label">Resturant History: </label>
+                            <textarea name="body" rows="10" cols="30" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="label">Resturant Address: </label>
                             <textarea name="body" rows="10" cols="30" class="form-control" required></textarea>
                         </div>
                         <div class="form-group">
