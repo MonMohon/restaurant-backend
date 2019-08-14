@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRestaurantsTable extends Migration
+class CreateResturantsCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,18 +15,27 @@ class CreateRestaurantsTable extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('title');                //Title field
+            $table->string('body');                 //History field
             $table->string('qrcode');               //QR Code
             $table->string('qrcode_image_url');     //QR Code image Path
             $table->string('featured_image_url');   //Resturant image Path
             $table->string('area');
             $table->string('country');
-            $table->string('history');
-            $table->string('site url');
+            $table->string('site_url');
             $table->timestamps();
+            $table->softDeletes();
+        });
+        Schema::create('comments', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('post_id')->unsigned();
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->text('body');     //comments
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -35,5 +44,6 @@ class CreateRestaurantsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('restaurants');
+        Schema::dropIfExists('comments');
     }
 }

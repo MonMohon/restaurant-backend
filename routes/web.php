@@ -17,6 +17,7 @@ Route::get('/', function () {
 Auth::routes();
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/resturant', 'ResturantController@index')->name('home');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');

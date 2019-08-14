@@ -18,18 +18,7 @@ class CreateVisitorsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('restaurant_id');
             $table->timestamps();
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on($tableNames['users'])
-                ->onDelete('cascade');
-
-            $table->foreign('restaurant_id')
-                ->references('id')
-                ->on($tableNames['restaurants'])
-                ->onDelete('cascade');
-
-            $table->primary(['user_id', 'restaurant_id']);
+            $table->softDeletes();
         });
     }
 
