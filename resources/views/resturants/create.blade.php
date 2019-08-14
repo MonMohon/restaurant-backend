@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Create Post</div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('posts.store') }}">
+                    <form method="post" action="{{ route('resturants.store') }}">
                         <div class="form-group">
                         @csrf
                             <label class="label">Post Title: </label>

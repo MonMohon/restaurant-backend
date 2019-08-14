@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <h1>Manage Posts</h1>
-            <a href="{{ route('posts.create') }}" class="btn btn-success" style="float: right">Create Resturant</a>
+            <a href="{{ route('resturants.create') }}" class="btn btn-success" style="float: right">Create Resturant</a>
             <table class="table table-bordered">
                 <thead>
                     <th width="80px">Id</th>
@@ -18,7 +18,7 @@
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
                         <td>
-                            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">View Resturant</a>
+                            <a href="{{ route('resturants.show', $post->id) }}" class="btn btn-primary">View Resturant</a>
                         </td>
                     </tr>
                     @endforeach
