@@ -3,6 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-md-3">
+        @include('resturants.file_upload')
+        </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Create Resturant</div>

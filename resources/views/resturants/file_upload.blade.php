@@ -1,5 +1,5 @@
 <div class="panel-body">
-    <form id="imgform" method="post" action="{{ route('upload') }}" enctype="multipart/form-data">
+    <form id="imgform" method="post" action="{{ route('image.upload') }}" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-3 right"><h4>Select Image</h4></div>

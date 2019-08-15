@@ -37,6 +37,9 @@ Route::group(['prefix' => 'comments', 'as' => 'comment.'], function () {
 
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 
+Route::get('/file-upload', 'FileUploadController@index')->name('image.index');
+Route::post('/file-upload/upload', 'FileUploadController@upload')->name('image.upload');
+
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
