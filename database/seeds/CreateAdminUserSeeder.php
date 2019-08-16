@@ -1,10 +1,10 @@
 <?php
   
 use Illuminate\Database\Seeder;
-use App\User;
+use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-  
+
 class CreateAdminUserSeeder extends Seeder
 {
     /**

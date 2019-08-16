@@ -2,8 +2,8 @@
 
     namespace App\Http\Controllers\Admin;
 
-    use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
+    use Illuminate\Http\Request;
     use App\Models\User;
     use App\Models\Country;
     use Spatie\Permission\Models\Role;

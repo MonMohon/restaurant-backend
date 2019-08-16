@@ -10,27 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 Auth::routes(['verify' => true]);
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/resturant/{slug}', function(){
-    $post = \App\Resturant::where('slug', $slug)->firstOrFail(); 
-});
 /*
-Route::group(['prefix' => 'resturants', 'as' => 'resturants.'], function () {
-	Route::group(['middleware' => ['auth']], function () {
-        Route::get('/', 'ResturantController@index')->name('index');
-        Route::get('/create', 'ResturantController@create')->name('create');
-		Route::post('/store', 'ResturantController@store')->name('store');
-		Route::get('/show{id}', 'ResturantController@show')->name('show');
-	});
+Route::get('/resturant/{slug}', function($slug){
+    $post = \App\Models\Resturant::where('slug', $slug)->firstOrFail(); 
 });
 */
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/resturant/{slug}', 'HomeController@show');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 
 Route::group(['prefix' => 'comments', 'as' => 'comment.'], function () {
 	Route::group(['middleware' => ['auth']], function () {
@@ -40,12 +31,3 @@ Route::group(['prefix' => 'comments', 'as' => 'comment.'], function () {
 });
 
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
-
-Route::get('admin/file-upload', 'Admin\FileUploadController@index')->name('image.index');
-Route::post('admin/file-upload/upload', 'Admin\FileUploadController@upload')->name('image.upload');
-
-Route::group(['middleware' => ['auth']], function() {
-    Route::resource('admin/roles','Admin\RoleController');
-    Route::resource('admin/users','Admin\UserController');
-    Route::resource('admin/resturants','Admin\ResturantController');
-});
