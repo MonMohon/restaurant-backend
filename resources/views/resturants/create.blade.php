@@ -4,30 +4,46 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-3">
-        @include('resturants.file_upload')
+            @include('resturants.file_upload')
         </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Create Resturant</div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('resturants.store') }}">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    {!! Form::open(array('route' => 'resturants.store','method'=>'POST')) !!}
+                        {!! Form::hidden('image_url', null, array('id' => 'image_url')) !!}
                         <div class="form-group">
-                        @csrf
-                            <label class="label">Resturant Name: </label>
-                            <input type="text" name="title" class="form-control" required/>
+                            <strong>Resturant Name:</strong>
+                            {!! Form::text('title', null, array('placeholder' => 'Resturant Name','class' => 'form-control','required' => 'required')) !!}
                         </div>
                         <div class="form-group">
-                            <label class="label">Resturant History: </label>
-                            <textarea name="body" rows="10" cols="30" class="form-control" required></textarea>
+                            <strong>Resturant History:</strong>
+                            {!! Form::textarea('body', null, array('placeholder' => 'Resturant History','class' => 'form-control editor','required' => 'required')) !!}
                         </div>
                         <div class="form-group">
-                            <label class="label">Resturant Address: </label>
-                            <textarea name="body" rows="10" cols="30" class="form-control" required></textarea>
+                            <strong>Resturant Address:</strong>
+                            {!! Form::text('area', null, array('placeholder' => 'Resturant Address','class' => 'form-control','required' => 'required')) !!}
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-success" />
+                            <strong>Country:</strong>
+                            {!! Form::select('country', $countries,[], array('class' => 'form-control')) !!}
                         </div>
-                    </form>
+                        <div class="form-group">
+                            <strong>Site URL:</strong>
+                            {!! Form::text('site_url', null, array('placeholder' => 'URL','class' => 'form-control','required' => 'required')) !!}
+                        </div>
+                        <button id="btn-csubmit" type="submit" class="btn btn-primary">Submit</button>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

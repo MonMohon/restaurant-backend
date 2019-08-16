@@ -15,14 +15,14 @@ class CreateResturantsCommentsTable extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id')->unsigned();
             $table->string('title');                //Title field
             $table->string('body');                 //History field
-            $table->string('qrcode');               //QR Code
-            $table->string('qrcode_image_url');     //QR Code image Path
-            $table->string('featured_image_url');   //Resturant image Path
+            $table->string('slug');
+            $table->string('image_url');   //Resturant image Path
+            $table->string('site_url');               //QR Code
             $table->string('area');
             $table->string('country');
-            $table->string('site_url');
             $table->timestamps();
             $table->softDeletes();
         });

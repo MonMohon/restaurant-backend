@@ -7,10 +7,20 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="text-center text-success">Latest Resturant</h3>
-                    <br/>
                     <h2>{{ $post->title }}</h2>
+                    {!! $post->body !!}
+                    <img src="{{ asset('images/') }}/{{ $post->image_url }}" alt="{{ $post->slug }}"/>
                     <p>
-                    {{ $post->body }}
+                    {{ $post->slug }}
+                    </p>
+                    <p>
+                    {{ $post->area }}
+                    </p>
+                    <p>
+                    {{ $post->country }}
+                    </p>
+                    <p>
+                    {!! QrCode::size(250)->generate( $post->site_url ); !!}
                     </p>
                     <hr />
                     <h4>Display Comments</h4>

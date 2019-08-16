@@ -4,8 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Manage Resturant</h1>
-            <a href="{{ route('resturants.create') }}" class="btn btn-success" style="float: right">Create Resturant</a>
+            <div class="clearfix">
+                <h1 class="left">Manage Resturant</h1>
+                <a href="{{ route('resturants.create') }}" class="btn btn-success right">Create Resturant</a>            
+            </div>
             <table class="table table-bordered">
                 <thead>
                     <th width="80px">Id</th>
@@ -24,6 +26,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {!! $posts->links() !!}
         </div>
     </div>
 </div>

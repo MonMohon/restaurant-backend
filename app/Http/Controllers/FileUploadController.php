@@ -32,7 +32,8 @@ class FileUploadController extends Controller
 
         $output = array(
             'success' => 'Image uploaded successfully',
-            'image'  => '<img src="/images/'.$new_name.'" class="img-thumbnail" />'
+            'image'  => '<img src="/images/'.$new_name.'" class="img-thumbnail" />',
+            'path'  => $new_name
         );
 
         return response()->json($output);

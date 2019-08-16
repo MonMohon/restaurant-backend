@@ -17,7 +17,7 @@ class Resturant extends Model
     *
     * @var array
     */
-    protected $fillable = ['title', 'body','qrcode','qrcode_image_url','featured_image_url','area','country','site_url'];
+    protected $fillable = ['title', 'body','site_url','image_url','area','country','slug','user_id'];
 
     /**
     * The has Many Relationship

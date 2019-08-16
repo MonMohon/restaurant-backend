@@ -26,8 +26,9 @@ $(document).ready(function(){
                 $('.progress-bar').css('width', '100%');
                 $('#success').html('<span class="text-success"><b>'+data.success+'</b></span><br /><br />');
                 $('#success').append(data.image);
+                $('#image_url').val(data.path);
             }
         }
     });
-
+    $('.editor').ckeditor();
 });

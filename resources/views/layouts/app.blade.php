@@ -15,10 +15,9 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Resturant
-                </a>
+            <a class="navbar-brand" href="{{ url('/') }}">
+                Resturant
+            </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,6 +39,10 @@
                                 <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
                                 <li><a class="nav-link" href="{{ route('resturants.index') }}">Manage Resturant</a></li>
                             @endrole
+                            @role('Subscriber')
+                                <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
+                                <li><a class="nav-link" href="{{ route('resturants.index') }}">Manage Resturant</a></li>
+                            @endrole
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -58,7 +61,6 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
         </nav>
 	</header>
         <main class="py-4">
@@ -72,6 +74,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.form.js') }}" defer></script>
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/adapters/jquery.js') }}" defer></script>
     <script src="{{ asset('js/script.js') }}" defer></script>
 </body>
 </html>
