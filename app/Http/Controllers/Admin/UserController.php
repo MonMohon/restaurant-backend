@@ -1,10 +1,11 @@
 <?php
 
-    namespace App\Http\Controllers;
+    namespace App\Http\Controllers\Admin;
+
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
-    use App\User;
-    use App\Country;
+    use App\Models\User;
+    use App\Models\Country;
     use Spatie\Permission\Models\Role;
     use DB;
     use Hash;

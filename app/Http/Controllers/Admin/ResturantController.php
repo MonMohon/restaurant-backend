@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Resturant;
-use App\Country;
+use App\Models\Resturant;
+use App\Models\Country;
 
 class Slug
 {

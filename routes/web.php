@@ -17,6 +17,10 @@ Route::get('/', function () {
 Auth::routes();
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/resturant/{slug}', function(){
+    $post = \App\Resturant::where('slug', $slug)->firstOrFail(); 
+});
 /*
 Route::group(['prefix' => 'resturants', 'as' => 'resturants.'], function () {
 	Route::group(['middleware' => ['auth']], function () {
@@ -37,11 +41,11 @@ Route::group(['prefix' => 'comments', 'as' => 'comment.'], function () {
 
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 
-Route::get('/file-upload', 'FileUploadController@index')->name('image.index');
-Route::post('/file-upload/upload', 'FileUploadController@upload')->name('image.upload');
+Route::get('admin/file-upload', 'Admin\FileUploadController@index')->name('image.index');
+Route::post('admin/file-upload/upload', 'Admin\FileUploadController@upload')->name('image.upload');
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::resource('roles','RoleController');
-    Route::resource('users','UserController');
-    Route::resource('resturants','ResturantController');
+    Route::resource('admin/roles','Admin\RoleController');
+    Route::resource('admin/users','Admin\UserController');
+    Route::resource('admin/resturants','Admin\ResturantController');
 });
